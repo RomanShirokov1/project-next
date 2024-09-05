@@ -10,12 +10,11 @@ interface Props {
 const categories = [
   { id: 1, name: 'Пиццы' },
   { id: 2, name: 'Завтрак' },
-  { id: 3, name: 'Комбо' },
-  { id: 4, name: 'Закуски' },
-  { id: 5, name: 'Коктейли' },
-  { id: 6, name: 'Кофе' },
-  { id: 7, name: 'Напитки' },
-  { id: 8, name: 'Десерты' },
+  { id: 3, name: 'Закуски' },
+  { id: 4, name: 'Коктейли' },
+  { id: 5, name: 'Кофе' },
+  { id: 6, name: 'Напитки' },
+  { id: 7, name: 'Десерты' },
 ];
 const activeIdex = 0;
 
