@@ -23,14 +23,23 @@ export const SearchInput: React.FC<Props> = ({ className }) => {
   });
 
   useDebounce(
-    () => {
-      Api.products.search(searchQuery).then((items) => {
-        setProducts(items);
-      });
+    async () => {
+      try {
+        const response = await Api.products.search(searchQuery);
+        setProducts(response);
+      } catch (error) {
+        console.error(error);
+      }
     },
     300,
     [searchQuery],
   );
+
+  const onClickItem = () => {
+    setFocused(false);
+    setSearchQuery('');
+    setProducts([]);
+  };
 
   return (
     <>
@@ -55,6 +64,7 @@ export const SearchInput: React.FC<Props> = ({ className }) => {
             )}>
             {products.map((product) => (
               <Link
+                onClick={onClickItem}
                 key={product.id}
                 href={`/product/${product.id}`}
                 className="flex items-center gap-2 px-3 py-2 hover:bg-primary/10">
