@@ -12,18 +12,13 @@ export type Variant = {
 interface Props {
   items: readonly Variant[];
   onClick?: (value: Variant['value']) => void;
-  selectedValue?: Variant['value'];
+  value?: Variant['value'];
   className?: string;
 }
 
-export const GroupVariants: React.FC<Props> = ({
-  items,
-  onClick,
-  selectedValue: value,
-  className,
-}) => {
+export const GroupVariants: React.FC<Props> = ({ items, onClick, value, className }) => {
   return (
-    <div className={cn('flex justify-between bg-[#F3F3F7] rounded-3xl p-1 select-none', className)}>
+    <div className={cn('flex justify-between bg-[#f3f3f7] rounded-3xl p-1 select-none', className)}>
       {items.map((item) => (
         <button
           key={item.name}
