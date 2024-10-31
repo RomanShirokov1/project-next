@@ -1,4 +1,6 @@
 import { Container, Header } from '@/components/shared';
+import { nunito } from '@/lib/font';
+import { cn } from '@/lib/utils';
 
 export const metadata = {
   title: 'Next pizza | Оформление',
@@ -7,7 +9,7 @@ export const metadata = {
 
 export default function CheckoutLayout({ children }: { children: React.ReactNode }) {
   return (
-    <main className="min-h-screen bg-[#F4F1EE] ">
+    <main className={cn('min-h-screen bg-[#F4F1EE]', nunito.className)}>
       <Container>
         <Header className="border-b-gray-200" hasSearch={false} hasCart={false} />
         {children}
