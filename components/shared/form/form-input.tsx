@@ -1,7 +1,6 @@
 'use client';
-
 import { useFormContext } from 'react-hook-form';
-import { Input } from '../../ui/input';
+import { Input } from '../../ui/input'; // Импортируйте стандартный Input для других полей
 import { ClearButton } from '../clear-button';
 import { ErrorText } from '../error-text';
 import { RequiredSymbol } from '../required-symbol';

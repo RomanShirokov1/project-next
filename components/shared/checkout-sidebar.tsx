@@ -45,7 +45,7 @@ export const CheckoutSidebar: React.FC<Props> = ({ totalAmount, loading, classNa
         title={
           <div className="flex items-center">
             <Truck size={18} className="mr-1 text-gray-300" />
-            Стоимость доствки:
+            Стоимость доставки:
           </div>
         }
         value={`${DELIVERY_PRICE} ₽`}

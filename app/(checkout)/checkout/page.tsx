@@ -1,4 +1,11 @@
 'use client';
+
+import { FormProvider, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+
+import { CheckoutFormValues, checkoutFormSchema } from '@/constants';
+import { useCart } from '@/hooks';
+import React from 'react';
 import {
   CheckoutAddressForm,
   CheckoutCart,
@@ -7,11 +14,6 @@ import {
   Container,
   Title,
 } from '@/components/shared';
-import { useCart } from '@/hooks';
-
-import { useForm, SubmitHandler, FormProvider } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { checkoutFormSchema, CheckoutFormValues } from '@/constants/checkout-form-schema';
 
 export default function CheckoutPage() {
   const { totalAmount, items, updateItemQuantity, removeCartItem } = useCart();
