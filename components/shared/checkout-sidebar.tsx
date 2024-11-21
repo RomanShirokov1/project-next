@@ -6,7 +6,7 @@ import { Button, Skeleton } from '../ui';
 import { cn } from '@/lib/utils';
 
 const FEE = 3;
-const DELIVERY_PRICE = 250;
+const DELIVERY_PRICE = 150;
 
 interface Props {
   totalAmount: number;

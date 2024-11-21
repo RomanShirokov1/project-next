@@ -30,6 +30,7 @@ export { RequiredSymbol } from './required-symbol';
 export { ErrorText } from './error-text';
 export { ClearButton } from './clear-button';
 export { AddressInput } from './address-input';
+export { PhoneInput } from './phone-input';
 export * from './form';
 export * from './modals';
 export * from './checkout';

@@ -1,9 +1,10 @@
 'use client';
-import { useFormContext } from 'react-hook-form';
+import { Controller, useFormContext } from 'react-hook-form';
 import { Input } from '../../ui/input'; // Импортируйте стандартный Input для других полей
 import { ClearButton } from '../clear-button';
 import { ErrorText } from '../error-text';
 import { RequiredSymbol } from '../required-symbol';
+import { PhoneInput } from '../phone-input';
 
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;
@@ -17,6 +18,7 @@ export const FormInput: React.FC<Props> = ({ className, name, label, required, .
     register,
     formState: { errors },
     watch,
+    control,
     setValue,
   } = useFormContext();
 
@@ -36,7 +38,21 @@ export const FormInput: React.FC<Props> = ({ className, name, label, required, .
       )}
 
       <div className="relative">
-        <Input className="h-12 text-md" {...register(name)} {...props} />
+        {name == 'phone' ? (
+          <Controller
+            name={name}
+            control={control}
+            render={({ field }) => (
+              <PhoneInput
+                className="h-12 text-md"
+                onChange={field.onChange}
+                placeholder="+7(000)000-00-00"
+              />
+            )}
+          />
+        ) : (
+          <Input className="h-12 text-md" {...register(name)} {...props} />
+        )}
 
         {value && <ClearButton onClick={onClickClear} />}
       </div>

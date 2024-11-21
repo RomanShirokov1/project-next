@@ -10,9 +10,10 @@ interface Props {
 
 export const AddressInput: React.FC<Props> = ({ onChange }) => {
   return (
+    //@ts-ignore
     <AddressSuggestions
       token="6ee79171949e5876cf5787a37199959b1a6609e8"
-      onChange={(data) => onChange?.(data?.value)}
+      onChange={(data: any) => onChange?.(data?.value)}
     />
   );
 };
