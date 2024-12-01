@@ -21,7 +21,11 @@ export const CheckoutSidebar: React.FC<Props> = ({ totalAmount, loading, classNa
     <WhiteBlock className={cn('p-6 sticky top-4', className)}>
       <div className="flex flex-col gap-1">
         <span className="text-xl">Итого:</span>
-        <span className="text-[34px] font-extrabold">{totalPrice} ₽</span>
+        {loading ? (
+          <Skeleton className="h-11 rounded-lg" />
+        ) : (
+          <span className="h-11 text-[34px] font-extrabold">{totalPrice} ₽</span>
+        )}
       </div>
       <CheckoutItemDetails
         title={
@@ -30,7 +34,7 @@ export const CheckoutSidebar: React.FC<Props> = ({ totalAmount, loading, classNa
             Стоимость товаров:
           </div>
         }
-        value={`${totalAmount} ₽`}
+        value={loading ? <Skeleton className="h-6 w-16 rounded-[6px]" /> : `${totalAmount} ₽`}
       />
       <CheckoutItemDetails
         title={
@@ -39,7 +43,7 @@ export const CheckoutSidebar: React.FC<Props> = ({ totalAmount, loading, classNa
             Сервисный сбор:
           </div>
         }
-        value={`${feePrice} ₽`}
+        value={loading ? <Skeleton className="h-6 w-16 rounded-[6px]" /> : `${feePrice} ₽`}
       />
       <CheckoutItemDetails
         title={
@@ -48,9 +52,12 @@ export const CheckoutSidebar: React.FC<Props> = ({ totalAmount, loading, classNa
             Стоимость доставки:
           </div>
         }
-        value={`${DELIVERY_PRICE} ₽`}
+        value={loading ? <Skeleton className="h-6 w-16 rounded-[6px]" /> : `${DELIVERY_PRICE} ₽`}
       />
-      <Button type="submit" className="w-full mt-6 h-14 rounded-2xl text-base font-bold">
+      <Button
+        loading={loading}
+        type="submit"
+        className="w-full mt-6 h-14 rounded-2xl text-base font-bold">
         Перейти к оплате
         <ArrowRight className="ml-2 w-5" />
       </Button>
