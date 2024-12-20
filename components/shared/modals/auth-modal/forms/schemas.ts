@@ -19,5 +19,17 @@ export const formRegisterSchema = formLoginSchema
     path: ['confirmPassword'],
   });
 
+export const formChangeSchema = z.object({
+  email: z.string().email({ message: 'Введите корректную почту' }),
+  fullName: z.string().min(2, { message: 'Введите имя и фамилию' }),
+  password: z.string().optional(),
+  confirmPassword: z.string().optional(),
+
+}).refine((data) => data.password === data.confirmPassword, {
+  message: 'Пароли не совпадают',
+  path: ['confirmPassword'],
+});
+
 export type TFormLoginValues = z.infer<typeof formLoginSchema>;
 export type TFormRegisterValues = z.infer<typeof formRegisterSchema>;
+export type TFormChangeValues = z.infer<typeof formChangeSchema>;

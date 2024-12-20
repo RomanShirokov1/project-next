@@ -32,6 +32,8 @@ export { ClearButton } from './clear-button';
 export { AddressInput } from './address-input';
 export { PhoneInput } from './phone-input';
 export { ProfileButton } from './profile-button';
+export { InfoBlock } from './info-block';
+export { ProfileForm } from './profile-form';
 export * from './form';
 export * from './modals';
 export * from './checkout';
