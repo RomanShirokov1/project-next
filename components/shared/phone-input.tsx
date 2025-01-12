@@ -18,7 +18,7 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
     return (
       <MaskedPhoneInput
         {...props}
-        ref={ref}
+        inputRef={ref}
         mask="+{7}(000)000-00-00"
         onAccept={onChange}
         placeholder={props.placeholder}

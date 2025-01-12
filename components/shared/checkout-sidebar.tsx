@@ -16,7 +16,7 @@ interface Props {
 
 export const CheckoutSidebar: React.FC<Props> = ({ totalAmount, loading, className }) => {
   const feePrice = (totalAmount * FEE) / 100;
-  const totalPrice = totalAmount + feePrice + DELIVERY_PRICE;
+  const totalPrice = (totalAmount + feePrice + DELIVERY_PRICE).toFixed(2);
   return (
     <WhiteBlock className={cn('p-6 sticky top-4', className)}>
       <div className="flex flex-col gap-1">
