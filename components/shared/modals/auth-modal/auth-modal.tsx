@@ -64,23 +64,6 @@ export const AuthModal: React.FC<Props> = ({ open, onClose }) => {
             />
             Google
           </Button>
-
-          <Button
-            variant="secondary"
-            onClick={() =>
-              signIn('Vk', {
-                callbackUrl: '/',
-                redirect: true,
-              })
-            }
-            type="button"
-            className="gap-2 h-12 p-2 flex-1">
-            <img
-              className="w-6 h-6"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/VK_Compact_Logo_%282021-present%29.svg/40px-VK_Compact_Logo_%282021-present%29.svg.png"
-            />
-            VK
-          </Button>
         </div>
 
         <Button variant="outline" onClick={onSwitchType} type="button" className="h-12">
