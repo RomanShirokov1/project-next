@@ -13,7 +13,7 @@ const MaskedPhoneInput = IMaskMixin(
   ),
 );
 
-export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
+const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
   ({ onChange, ...props }, ref) => {
     return (
       <MaskedPhoneInput
@@ -26,3 +26,7 @@ export const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
     );
   },
 );
+
+PhoneInput.displayName = 'PhoneInput';
+
+export { PhoneInput };
